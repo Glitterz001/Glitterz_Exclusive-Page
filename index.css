@@ -1,9 +1,8 @@
  * {
-        margin: 0;
+        margin: 0 0 0 0;
         padding: 0;
         scroll-behavior: smooth;
-        box-sizing: border-box; 
-       
+        box-sizing: border-box;
  }
     nav {
         display: flex;
@@ -17,11 +16,14 @@
         border-radius: 5px;
         box-shadow: 3px 3px 5px #268cf4, -3px -3px 5px #268cf4;
         padding: 10px;
+        z-index: 1000;
 }
 .nav img {
     border-radius: 50%;
     align-items: center;
     justify-content: center;
+    max-width: 40px;
+    height: auto;
 }
 
 .nav ul {
@@ -29,6 +31,12 @@
     display: flex;
     gap: 15px;
     padding-right: 30px;
+}
+.nav-list{
+    display: block;
+}
+.show-link{
+    display: none;
 }
 .nav ul a {
     color: #268cf4;
@@ -47,52 +55,43 @@
     display: none;
     font-size: 30px;
     cursor: pointer;
+    max-width: 50px;
+    overflow: hidden;
 }
 
 .nav button:hover {
     color: red;
 }
 header {
-    background: black;
-    display: flex;
+    background-color: black;
+    display:flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-around;
+    padding: 100px 60px;
+    overflow: hidden;
 }
-.welcome-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 10% 5%;
-}
-
-.welcome-container > div span {
+header > div span {
     color: #268cf4;
 }
-.welcome-container > div {
+header > div {
     color: white;
     align-items: center;
-    justify-content: center;
-    text-align: justify;
-   
+    justify-content:  center;
 }
-.welcome-container > div h1 {
-    width: 55%;
-    font-size: 60px;
+header > div h1 {
+   font-size:60px;
+    width: 80%;
 }
-.welcome-container > div p {
+header > div p {
     font-size: 25px;
     margin-top: 10px;
     padding: 10px 0;
     font-weight: bold;
 }
-.main-image{
-   padding-right: 0px;
-}
-.main-img img {
+.main-img{
     box-shadow: 6px 6px 8px #ece5b2, -6px -6px 8px azure;
 }
-
-.welcome-container > div button{
+header > div button{
     border: none;
     padding: 15px;
     background-color: white;
@@ -102,11 +101,9 @@ header {
     border-radius: 5px;
     box-shadow: 2px 2px 3px #268cf4, -2px -2px 3px #268cf4;
 }
-
-.welcome-container > div button:hover {
+header > div button:hover {
     color: red;
 }
-
 
 .about-container {
     justify-content: center;
@@ -115,6 +112,7 @@ header {
     padding: 20px 0;
     scroll-margin-top: 80px;
     width: 100%;
+    overflow: hidden;
 }
 
 .about-container h2 {
@@ -160,10 +158,12 @@ header {
     justify-content: space-around;
     align-items: center;
     padding: 20px;
-    overflow: auto;
+    overflow-x: auto;
+    white-space: nowraps;
     gap: 20px;
     border-radius: 50px;
-
+    scrollbar-width: thin;
+    width: 100%;
 }
 
 .Our-services  h1 {
@@ -191,6 +191,7 @@ header {
     padding: 15px 0;
     scroll-margin-top: 80px;
     width: 100%;
+    overflow :hidden;
 }
 
 .review-container h2{
@@ -269,6 +270,7 @@ header {
     padding: 5px;
     scroll-margin-top: 80px;
     width: 100%;
+    overflow: hidden;
 }
 
 .questions {
@@ -357,6 +359,7 @@ header {
     flex-direction: column;
     justify-content: center;
     padding: 20px;
+    overflow: hidden;
 }
 
 .footer {
@@ -456,9 +459,37 @@ header {
         justify-content: space-between;
         padding: 10px;
         position: relative;
+        width: 100%;
+        background: white;
+        top: 0;
+        left: 0;
     }
+    
+    .nav button{
+        display: block;
+        padding-right: 30px;
+        
+    } 
+    .nav-list{
+        display: none;
+        padding: 40px;
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-10px); /* For smooth animation */
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    nav .show-link ul{
+        display:flex;
+       flex-direction: column;
+       gap:20px;
+       justify-content: center;
+       align-items: center;
+       padding: 10px;
+       }
+       
     .show-link {
-        display: flex;
+        display: block;
         height: auto;
         flex-direction: column;
         background-color: white;
@@ -468,45 +499,38 @@ header {
         width: 100%;
         text-align: left;
         margin-top: 20px;
-    }
-
-    .nav button{
-        display: flex;
-        padding-right: 30px;
-        
-    }
-
-    .nav-list{
-        display: none;
-        padding: 40px;
-        position: absolute;
         opacity: 1;
-        visibility: hidden;
-        
+        transform: translateY(0);
+        overflow: hidden;
     }
-    .welcome-container {
-        display: block;
-        justify-content: center;
-        align-items: center;
-        padding: 40px 0;
-    }
-
-    .welcome-container > div h1 {
-        width:40%;
-        font-size: 34px;
-    }
-    .welcome-container > div p {
-        font-size: 18px;
-    }
-
-    .main-img img {
-        display: none;
-    }
-
-    .welcome-container button {
-        display: block;
-        padding: 10px;
-    }
+    
+        header {
+            justify-content: center;
+            padding: 120px 50px;
+        }
+        header div{
+          width: 100%;
+        }
+        header > div h1 {
+           font-size:35px;
+           width: 100%;
+        }
+        .main-img{
+          display:none;
+        }
+        header > div p {
+            font-size: 15px;
+        }
+        .Our-services{
+            display: block;
+        }
+        .Our-services{
+            display: block;
+        }
+        .Services > div{
+            padding: 1px;
+            border-radius: 10px;
+        }
 
     .footer {
         display: block;
@@ -538,8 +562,98 @@ header {
 }
 
 
+@media screen and (max-width:320px) {
 
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        position: relative;
+    }
+    .show-link {
+        display: block;
+        height: auto;
+        flex-direction: column;
+        background-color: white;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 100%;
+        text-align: left;
+        margin-top: 20px;
+        opacity: 1;
+        transform: translateY(0);
+        overflow: hidden;
+    }
 
+    .nav button{
+        display: flex;
+        padding-right: 30px;
+        
+    }
+
+    .nav-list{
+        display: none;
+        padding: 40px;
+        position: absolute;
+        opacity: 1;
+        visibility: hidden;
+    }
+    nav .show-link ul{
+        display:flex;
+       flex-direction: column;
+       gap:20px;
+       justify-content: center;
+       align-items: center;
+       padding: 10px;
+       }
+        header {
+            justify-content: center;
+            padding: 120px 20px;
+        }
+        header div{
+          width: 100%;
+        }
+        header > div h1 {
+           font-size:35px;
+           width: 100%;
+        }
+        .main-img{
+          display:none;
+        }
+        header > div p {
+            font-size: 15px;
+        }
+        
+
+    .footer {
+        display: block;
+        margin: 2px;
+        font-weight: bolder;
+    }
+
+    .news {
+        display: block;
+        padding-bottom: 10px 0;
+        border-radius: 10px;
+        margin-top: 0;
+    }
+
+    .quick {
+        padding-bottom: 50px;
+        line-height: 15px;
+    }
+
+    .Newsletter {
+        display: block;
+        padding: 5px 0;
+    }
+
+    .address-container {
+        display: block;
+        line-height: 15px;
+    }
+}
 
 
 
