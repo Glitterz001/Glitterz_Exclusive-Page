@@ -463,7 +463,6 @@ header > div button:hover {
         background: white;
         top: 0;
         left: 0;
-        overflow: auto;
     }
     
     .nav button{
