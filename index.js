@@ -3,16 +3,17 @@ const btn = document.getElementById("button");
 const link = document.querySelector(".nav-list");
 
 btn.addEventListener("click",function (){
-link.classList.toggle("show-link");
-if(link.classList.contains("show-link")){
+if(link.classList.contains("nav-list")){
+    link.classList.remove("nav-list")
+    link.classList.add("show-link")
  btn.classList.remove("fa-bars");
  btn.classList.add("fa-xmark");
- link.classList.remove("nav-list")
 }
 else{
+    link.classList.remove("show-link")
+    link.classList.add("nav-list")
   btn.classList.remove("fa-xmark");
   btn.classList.add("fa-bars");
-  link.classList.add("nav-list")
 }
 });
 
